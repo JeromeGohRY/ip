@@ -6,12 +6,20 @@ public class Jerome {
         String end = " Bye. Hope to see you again soon!";
         Scanner scn = new Scanner(System.in);
         System.out.println(start);
+        String tasks[] = new String[100];
+        int idx = 0;
         while (true) {
             String echo = scn.nextLine();
             if (echo.equals("bye")) {
                 break;
-            } else{
-                System.out.println(echo);
+            } else if (echo.equals("list")) {
+                for (int i = 0; i < idx; i++) {
+                    System.out.println(String.valueOf(i + 1) + ". " + tasks[i]);
+                }
+            } else {
+                tasks[idx] = echo;
+                idx += 1;
+                System.out.println("added: " + echo);
             }
         }
         System.out.println(end);
