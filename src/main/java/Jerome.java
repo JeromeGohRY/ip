@@ -20,15 +20,27 @@ public class Jerome {
                     System.out.println(String.valueOf(i + 1) + ". " + tasks[i]);
                 }
             } else if (separated[0].equals("mark")) {
-                int i = Integer.parseInt(separated[1]) - 1;
-                tasks[i].markAsDone();
-                System.out.println("Nice! I've marked this task as done:");
-                System.out.println(tasks[i]);
+                try {
+                    int i = Integer.parseInt(separated[1]) - 1;
+                    tasks[i].markAsDone();
+                    System.out.println("Nice! I've marked this task as done:");
+                    System.out.println(tasks[i]);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Input error: The input is missing the index of the task you wish to mark as done.");
+                } catch (NumberFormatException e) {
+                    System.out.println("Input error: The provided index is not a valid number.");
+                }
             } else if (separated[0].equals("unmark")) {
-                int i = Integer.parseInt(separated[1]) - 1;
-                tasks[i].markAsNotDone();
-                System.out.println("Okay,  I've marked this task as not done yet:");
-                System.out.println(tasks[i]);
+                try {
+                    int i = Integer.parseInt(separated[1]) - 1;
+                    tasks[i].markAsNotDone();
+                    System.out.println("Okay,  I've marked this task as not done yet:");
+                    System.out.println(tasks[i]);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Input error: The input is missing the index of the task you wish to mark as not done.");
+                } catch (NumberFormatException e) {
+                    System.out.println("Input error: The provided index is not a valid number.");
+                }
             } else {
                 Task t;
                 try {
