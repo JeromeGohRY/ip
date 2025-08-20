@@ -2,9 +2,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 public class Jerome {
     public static void main(String[] args) {
-        String start = " Hello! I'm Jerome.\n"
-                + " What can I do for you? \n";
-        String end = " Bye. Hope to see you again soon!";
+        String start = "Hello! I'm Jerome.\n"
+                + "What can I do for you?";
+        String end = "Bye. Hope to see you again soon!";
         Scanner scn = new Scanner(System.in);
         System.out.println(start);
         Task tasks[] = new Task[100];
@@ -45,7 +45,7 @@ public class Jerome {
                 }
                 tasks[idx] = t;
                 idx += 1;
-                System.out.println("Got it. I've added this task: ");
+                System.out.println("Got it. I've added this task:");
                 System.out.println(t);
                 System.out.println(String.format("Now you have %d tasks in the list.", idx));
             }
