@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 public class Jerome {
@@ -7,8 +8,7 @@ public class Jerome {
         String end = "Bye. Hope to see you again soon!";
         Scanner scn = new Scanner(System.in);
         System.out.println(start);
-        Task tasks[] = new Task[100];
-        int idx = 0;
+        ArrayList<Task> tasks = new ArrayList<>();
         while (true) {
             String input = scn.nextLine();
             String[] separated = input.split(" ");
@@ -16,15 +16,15 @@ public class Jerome {
                 break;
             } else if (input.equals("list")) {
                 System.out.println("Here are the tasks in your list:");
-                for (int i = 0; i < idx; i++) {
-                    System.out.println(String.valueOf(i + 1) + ". " + tasks[i]);
+                for (int i = 0; i < tasks.size(); i++) {
+                    System.out.println(String.valueOf(i + 1) + ". " + tasks.get(i));
                 }
             } else if (separated[0].equals("mark")) {
                 try {
                     int i = Integer.parseInt(separated[1]) - 1;
-                    tasks[i].markAsDone();
+                    tasks.get(i).markAsDone();
                     System.out.println("Nice! I've marked this task as done:");
-                    System.out.println(tasks[i]);
+                    System.out.println(tasks.get(i));
                 } catch (ArrayIndexOutOfBoundsException e) {
                     System.out.println("Input error: The input is missing the index of the task you wish to mark as done.");
                 } catch (NumberFormatException e) {
@@ -33,11 +33,24 @@ public class Jerome {
             } else if (separated[0].equals("unmark")) {
                 try {
                     int i = Integer.parseInt(separated[1]) - 1;
-                    tasks[i].markAsNotDone();
+                    tasks.get(i).markAsNotDone();
                     System.out.println("Okay,  I've marked this task as not done yet:");
-                    System.out.println(tasks[i]);
+                    System.out.println(tasks.get(i));
                 } catch (ArrayIndexOutOfBoundsException e) {
                     System.out.println("Input error: The input is missing the index of the task you wish to mark as not done.");
+                } catch (NumberFormatException e) {
+                    System.out.println("Input error: The provided index is not a valid number.");
+                }
+            } else if (separated[0].equals("delete")) {
+                try {
+                    int i = Integer.parseInt(separated[1]) - 1;
+                    Task toBeRemoved = tasks.get(i);
+                    tasks.remove(i);
+                    System.out.println("Noted. I've removed this task:");
+                    System.out.println(toBeRemoved);
+                    System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    System.out.println("Input error: The input is missing the index of the task you wish to delete.");
                 } catch (NumberFormatException e) {
                     System.out.println("Input error: The provided index is not a valid number.");
                 }
@@ -67,13 +80,12 @@ public class Jerome {
                         }
                         t = new Event(formatted[0], formatted[1], formatted[2]);
                     } else {
-                        throw new JeromeException("Unknown command: " + input + ". Please use todo, deadline, event, list, mark and unmark.");
+                        throw new JeromeException("Unknown command: " + input + " Please use todo, deadline, event, list, delete, mark, unmark and bye.");
                     }
-                    tasks[idx] = t;
-                    idx += 1;
+                    tasks.add(t);
                     System.out.println("Got it. I've added this task:");
                     System.out.println(t);
-                    System.out.println(String.format("Now you have %d tasks in the list.", idx));
+                    System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
                 } catch (JeromeException e) {
                     System.out.println(e.getMessage());
                 }
