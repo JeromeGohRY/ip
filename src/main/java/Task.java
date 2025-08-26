@@ -11,6 +11,11 @@ public class Task {
         this.isDone = false;
     }
 
+    public Task(String description, boolean isDone) {
+        this.description = description;
+        this.isDone = isDone;
+    }
+
     /**
      * Provides string representation for whether task is completed
      * @return corresponding symbol as a string depending on isDone
@@ -37,4 +42,6 @@ public class Task {
     public void markAsNotDone() {
         this.isDone = false;
     }
+
+    public String toSaveFormat() { return this.description; }
 }
