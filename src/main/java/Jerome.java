@@ -1,6 +1,8 @@
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+
 public class Jerome {
     public static void main(String[] args) {
         String start = "Hello! I'm Jerome.\n"
@@ -28,7 +30,7 @@ public class Jerome {
                     s.save(tasks);
                     System.out.println("Nice! I've marked this task as done:");
                     System.out.println(tasks.get(i));
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("Input error: The input is missing the index of the task you wish to mark as done.");
                 } catch (NumberFormatException e) {
                     System.out.println("Input error: The provided index is not a valid number.");
@@ -40,7 +42,7 @@ public class Jerome {
                     s.save(tasks);
                     System.out.println("Okay,  I've marked this task as not done yet:");
                     System.out.println(tasks.get(i));
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("Input error: The input is missing the index of the task you wish to mark as not done.");
                 } catch (NumberFormatException e) {
                     System.out.println("Input error: The provided index is not a valid number.");
@@ -54,7 +56,7 @@ public class Jerome {
                     System.out.println("Noted. I've removed this task:");
                     System.out.println(toBeRemoved);
                     System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
-                } catch (ArrayIndexOutOfBoundsException e) {
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println("Input error: The input is missing the index of the task you wish to delete.");
                 } catch (NumberFormatException e) {
                     System.out.println("Input error: The provided index is not a valid number.");
@@ -94,6 +96,8 @@ public class Jerome {
                     System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
                 } catch (JeromeException e) {
                     System.out.println(e.getMessage());
+                } catch (DateTimeParseException e) {
+                    System.out.println("Please provide a valid date in this format yyyy-mm-dd");
                 }
             }
         }
