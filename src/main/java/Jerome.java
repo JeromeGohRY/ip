@@ -8,7 +8,9 @@ public class Jerome {
         String end = "Bye. Hope to see you again soon!";
         Scanner scn = new Scanner(System.in);
         System.out.println(start);
-        ArrayList<Task> tasks = new ArrayList<>();
+        Storage s = new Storage("data.txt");
+
+        ArrayList<Task> tasks = s.load();
         while (true) {
             String input = scn.nextLine();
             String[] separated = input.split(" ");
@@ -23,6 +25,7 @@ public class Jerome {
                 try {
                     int i = Integer.parseInt(separated[1]) - 1;
                     tasks.get(i).markAsDone();
+                    s.save(tasks);
                     System.out.println("Nice! I've marked this task as done:");
                     System.out.println(tasks.get(i));
                 } catch (ArrayIndexOutOfBoundsException e) {
@@ -34,6 +37,7 @@ public class Jerome {
                 try {
                     int i = Integer.parseInt(separated[1]) - 1;
                     tasks.get(i).markAsNotDone();
+                    s.save(tasks);
                     System.out.println("Okay,  I've marked this task as not done yet:");
                     System.out.println(tasks.get(i));
                 } catch (ArrayIndexOutOfBoundsException e) {
@@ -46,6 +50,7 @@ public class Jerome {
                     int i = Integer.parseInt(separated[1]) - 1;
                     Task toBeRemoved = tasks.get(i);
                     tasks.remove(i);
+                    s.save(tasks);
                     System.out.println("Noted. I've removed this task:");
                     System.out.println(toBeRemoved);
                     System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
@@ -83,6 +88,7 @@ public class Jerome {
                         throw new JeromeException("Unknown command: " + input + " Please use todo, deadline, event, list, delete, mark, unmark and bye.");
                     }
                     tasks.add(t);
+                    s.save(tasks);
                     System.out.println("Got it. I've added this task:");
                     System.out.println(t);
                     System.out.println(String.format("Now you have %d tasks in the list.", tasks.size()));
