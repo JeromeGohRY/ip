@@ -1,4 +1,10 @@
-package jerome;
+package jerome.command;
+
+import jerome.Storage;
+import jerome.TaskList;
+import jerome.Ui;
+import jerome.task.Task;
+import jerome.task.Todo;
 
 public class TodoCommand extends Command {
     private String description;

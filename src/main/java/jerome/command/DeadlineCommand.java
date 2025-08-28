@@ -1,4 +1,11 @@
-package jerome;
+package jerome.command;
+
+import jerome.JeromeException;
+import jerome.task.Deadline;
+import jerome.task.Task;
+import jerome.Storage;
+import jerome.TaskList;
+import jerome.Ui;
 
 import java.time.format.DateTimeParseException;
 

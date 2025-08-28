@@ -1,4 +1,8 @@
-package jerome;
+package jerome.command;
+
+import jerome.Storage;
+import jerome.TaskList;
+import jerome.Ui;
 
 public class ListCommand extends Command {
     @Override

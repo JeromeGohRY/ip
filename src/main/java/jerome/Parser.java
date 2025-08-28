@@ -1,5 +1,7 @@
 package jerome;
 
+import jerome.command.*;
+
 public class Parser {
     public static Command parse(String input) throws JeromeException {
         String[] separated = input.split(" ", 2);

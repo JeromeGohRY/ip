@@ -1,5 +1,7 @@
 package jerome;
 
+import jerome.task.Task;
+
 import java.util.ArrayList;
 
 public class TaskList {
