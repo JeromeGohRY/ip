@@ -1,4 +1,9 @@
-package jerome;
+package jerome.command;
+
+import jerome.Storage;
+import jerome.task.Task;
+import jerome.TaskList;
+import jerome.Ui;
 
 public class DeleteCommand extends Command {
     private int index;

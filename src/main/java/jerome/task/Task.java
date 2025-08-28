@@ -1,4 +1,4 @@
-package jerome;
+package jerome.task;
 
 /**
  * Represents a task in the system.

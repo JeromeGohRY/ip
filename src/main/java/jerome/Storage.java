@@ -1,5 +1,10 @@
 package jerome;
 
+import jerome.task.Deadline;
+import jerome.task.Event;
+import jerome.task.Task;
+import jerome.task.Todo;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;

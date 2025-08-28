@@ -1,4 +1,9 @@
-package jerome;
+package jerome.command;
+
+import jerome.JeromeException;
+import jerome.Storage;
+import jerome.TaskList;
+import jerome.Ui;
 
 public class MarkCommand extends Command {
     private int index;

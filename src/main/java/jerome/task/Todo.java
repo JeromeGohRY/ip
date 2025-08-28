@@ -1,4 +1,4 @@
-package jerome;
+package jerome.task;
 
 public class Todo extends Task {
 

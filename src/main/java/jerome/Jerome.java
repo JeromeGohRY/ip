@@ -1,5 +1,7 @@
 package jerome;
 
+import jerome.command.Command;
+
 public class Jerome {
     private Storage storage;
     private TaskList tasks;
