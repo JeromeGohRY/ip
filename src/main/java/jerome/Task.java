@@ -1,3 +1,5 @@
+package jerome;
+
 /**
  * Represents a task in the system.
  * Holds task details like description and whether it is completed.
