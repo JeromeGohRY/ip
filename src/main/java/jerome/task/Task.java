@@ -45,5 +45,13 @@ public class Task {
         this.isDone = false;
     }
 
+    public boolean getStatus() {
+        return this.isDone;
+    }
+
     public String toSaveFormat() { return this.description; }
+
+    public String getDescription() {
+        return this.description;
+    }
 }
