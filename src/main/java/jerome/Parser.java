@@ -13,6 +13,8 @@ public class Parser {
                 return new ByeCommand();
             case "list":
                 return new ListCommand();
+            case "find":
+                return new FindCommand(args);
             case "mark":
                 try {
                     return new MarkCommand(Integer.parseInt(args) - 1);

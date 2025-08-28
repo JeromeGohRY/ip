@@ -35,6 +35,18 @@ public class TaskList {
         return this.tasks;
     }
 
+    public void filter(String keyword) {
+        TaskList matches = new TaskList(new ArrayList<Task>());
+        for (int i = 0; i < this.tasks.size(); i++) {
+            if (this.tasks.get(i).getDescription().contains(keyword)) {
+                matches.add(this.tasks.get(i));
+            }
+        }
+        System.out.println("Here are the matching tasks in your list:");
+        matches.listTasks();
+
+    }
+
     public void listTasks() {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < this.tasks.size(); i++) {
