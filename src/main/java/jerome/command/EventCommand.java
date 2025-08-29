@@ -1,6 +1,9 @@
 package jerome.command;
 
-import jerome.*;
+import jerome.TaskList;
+import jerome.Ui;
+import jerome.Storage;
+import jerome.JeromeException;
 import jerome.task.Event;
 import jerome.task.Task;
 
