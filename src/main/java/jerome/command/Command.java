@@ -5,7 +5,21 @@ import jerome.Storage;
 import jerome.TaskList;
 import jerome.Ui;
 
+/**
+ * Represents a user command.
+ */
 public abstract class Command {
+    /**
+     * Returns whether the program should exit.
+     */
     public abstract boolean isExit();
+    /**
+     * Executes the command with access to the task list, UI, and storage.
+     *
+     * @param tasks   The task list the command operates on.
+     * @param ui      The UI to interact with the user.
+     * @param storage The storage to save or load task data.
+     * @throws JeromeException If the command cannot be executed properly.
+     */
     public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException;
 }

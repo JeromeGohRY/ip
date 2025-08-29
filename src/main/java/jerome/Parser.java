@@ -2,7 +2,18 @@ package jerome;
 
 import jerome.command.*;
 
+/**
+ * The <code>Parser</code> class is responsible for interpreting user input
+ * and converting it into a <code>Command</code> that can be executed.
+ */
 public class Parser {
+    /**
+     * Parses the given user input and returns the corresponding Command to be executed.
+     *
+     * @param input The input string entered by the user.
+     * @return A Command object representing the user's instruction.
+     * @throws JeromeException If the input is invalid.
+     */
     public static Command parse(String input) throws JeromeException {
         String[] separated = input.split(" ", 2);
         String command = separated[0];

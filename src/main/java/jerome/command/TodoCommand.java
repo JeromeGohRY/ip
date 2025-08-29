@@ -6,6 +6,9 @@ import jerome.Ui;
 import jerome.task.Task;
 import jerome.task.Todo;
 
+/**
+ * Represents a command to add a Todo task.
+ */
 public class TodoCommand extends Command {
     private String description;
 
@@ -13,6 +16,13 @@ public class TodoCommand extends Command {
         this.description = description;
     }
 
+    /**
+     * Adds Todo task to task list and saves updated task list to storage.
+     *
+     * @param tasks   The task list the command operates on.
+     * @param ui      The UI to interact with the user.
+     * @param storage The storage to save or load task data.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) {
         Task task = new Todo(description);
@@ -21,6 +31,10 @@ public class TodoCommand extends Command {
         storage.save(tasks.getAll());
     }
 
+    /**
+     *
+     * {@inheritDoc}
+     */
     @Override
     public boolean isExit() {
         return false;

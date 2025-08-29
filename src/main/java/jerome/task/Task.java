@@ -2,7 +2,7 @@ package jerome.task;
 
 /**
  * Represents a task in the system.
- * Holds task details like description and whether it is completed.
+ * A <code>Task</code>  object holds details like description and whether it is done.
  */
 public class Task {
     protected String description;
