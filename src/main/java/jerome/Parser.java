@@ -5,6 +5,7 @@ import jerome.command.Command;
 import jerome.command.DeadlineCommand;
 import jerome.command.DeleteCommand;
 import jerome.command.EventCommand;
+import jerome.command.FindCommand;
 import jerome.command.ListCommand;
 import jerome.command.MarkCommand;
 import jerome.command.TodoCommand;
@@ -32,6 +33,8 @@ public class Parser {
             return new ByeCommand();
         case "list":
             return new ListCommand();
+        case "find":
+            return new FindCommand(args);
         case "mark":
             try {
                 return new MarkCommand(Integer.parseInt(args) - 1);
