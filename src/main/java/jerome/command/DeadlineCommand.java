@@ -9,6 +9,9 @@ import jerome.Ui;
 
 import java.time.format.DateTimeParseException;
 
+/**
+ * Represents a command to add a Deadline task.
+ */
 public class DeadlineCommand extends Command {
     private String description;
     private String by;
@@ -18,6 +21,14 @@ public class DeadlineCommand extends Command {
         this.by = by;
     }
 
+    /**
+     * Adds Deadline task to task list and saves updated task list to storage.
+     *
+     * @param tasks   The task list the command operates on.
+     * @param ui      The UI to interact with the user.
+     * @param storage The storage to save or load task data.
+     * @throws JeromeException If the command cannot be executed properly.
+     */
     @Override
     public void execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException {
         try {
@@ -30,6 +41,10 @@ public class DeadlineCommand extends Command {
         }
     }
 
+    /**
+     *
+     * {@inheritDoc}
+     */
     @Override
     public boolean isExit() {
         return false;

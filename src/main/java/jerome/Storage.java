@@ -11,7 +11,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
+/**
+ * Represents storage that loads and saves tasks input by user.
+ */
 public class Storage {
     private String path;
 
@@ -19,6 +21,10 @@ public class Storage {
         this.path = path;
     }
 
+    /**
+     * Provides tasks list previously saved by user
+     * @return <code>ArrayList</code> containing previously saved tasks
+     */
     public ArrayList<Task> load() {
         ArrayList<Task> tasks = new ArrayList<>();
         File file = new File(path);
@@ -43,6 +49,9 @@ public class Storage {
         return tasks;
     }
 
+    /**
+     * Saves the array of tasks to .txt file at <code>path</code>
+     */
     public void save(ArrayList<Task> tasks) {
         try {
             FileWriter fw = new FileWriter(path);
@@ -55,6 +64,10 @@ public class Storage {
         }
     }
 
+    /**
+     * Provides the corresponding task based on the String representation for .txt storage
+     * @return <code>Task</code> represented by the String
+     */
     public Task parseTask(String line){
         String[] parts = line.split(" \\| ");
         String type = parts[0];
