@@ -61,14 +61,14 @@ public class Storage {
         boolean isDone = parts[1].equals("1");
         String desc = parts[2];
         switch (type) {
-            case "T":
-                return new Todo(desc, isDone);
-            case "D":
-                return new Deadline(desc, isDone, parts[3]);
-            case "E":
-                return new Event(desc, isDone, parts[3], parts[4]);
-            default:
-                return null;
+        case "T":
+            return new Todo(desc, isDone);
+        case "D":
+            return new Deadline(desc, isDone, parts[3]);
+        case "E":
+            return new Event(desc, isDone, parts[3], parts[4]);
+        default:
+            return null;
 
         }
     }
