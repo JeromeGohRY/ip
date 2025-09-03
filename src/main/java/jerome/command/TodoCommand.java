@@ -22,13 +22,14 @@ public class TodoCommand extends Command {
      * @param tasks   The task list the command operates on.
      * @param ui      The UI to interact with the user.
      * @param storage The storage to save or load task data.
+     * @return response message to indicate successful addition to be shown in the gui.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) {
+    public String execute(TaskList tasks, Ui ui, Storage storage) {
         Task task = new Todo(description);
         tasks.add(task);
-        ui.showAddition(task,tasks);
         storage.save(tasks.getAll());
+        return ui.showAddition(task,tasks);
     }
 
     /**

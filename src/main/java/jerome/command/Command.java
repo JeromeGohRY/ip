@@ -19,7 +19,8 @@ public abstract class Command {
      * @param tasks   The task list the command operates on.
      * @param ui      The UI to interact with the user.
      * @param storage The storage to save or load task data.
+     * @return response message to be shown in the gui.
      * @throws JeromeException If the command cannot be executed properly.
      */
-    public abstract void execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException;
+    public abstract String execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException;
 }
