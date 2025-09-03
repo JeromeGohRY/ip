@@ -29,15 +29,16 @@ public class EventCommand extends Command {
      * @param tasks   The task list the command operates on.
      * @param ui      The UI to interact with the user.
      * @param storage The storage to save or load task data.
+     * @return response message to indicate successful addition to be shown in the gui.
      * @throws JeromeException If the command cannot be executed properly.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException {
         try {
             Task task = new Event(description, start, end);
             tasks.add(task);
-            ui.showAddition(task, tasks);
             storage.save(tasks.getAll());
+            return ui.showAddition(task, tasks);
         } catch (DateTimeParseException e) {
             throw new JeromeException("Please provide a valid date in this format yyyy-mm-dd");
         }

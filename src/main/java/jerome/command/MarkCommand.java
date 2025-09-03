@@ -21,13 +21,14 @@ public class MarkCommand extends Command {
      * @param tasks   The task list the command operates on.
      * @param ui      The UI to interact with the user.
      * @param storage The storage to save or load task data.
+     * @return response message to indicate successful marking of task as done.
      * @throws JeromeException If the command cannot be executed properly.
      */
     @Override
-    public void execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException {
+    public String execute(TaskList tasks, Ui ui, Storage storage) throws JeromeException {
         tasks.get(index).markAsDone();
         storage.save(tasks.getAll());
-        ui.showMark(tasks.get(index));
+        return ui.showMark(tasks.get(index));
     }
 
     /**

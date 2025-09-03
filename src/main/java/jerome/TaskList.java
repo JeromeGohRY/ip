@@ -35,22 +35,23 @@ public class TaskList {
         return this.tasks;
     }
 
-    public void filter(String keyword) {
+    public String filter(String keyword) {
         TaskList matches = new TaskList(new ArrayList<Task>());
         for (int i = 0; i < this.tasks.size(); i++) {
             if (this.tasks.get(i).getDescription().contains(keyword)) {
                 matches.add(this.tasks.get(i));
             }
         }
-        System.out.println("Here are the matching tasks in your list:");
-        matches.listTasks();
+        String output = "Here are the matching tasks in your list:\n";
+        return output + matches.listTasks();
 
     }
 
-    public void listTasks() {
-        System.out.println("Here are the tasks in your list:");
+    public String listTasks() {
+        String output = "Here are the tasks in your list:\n";
         for (int i = 0; i < this.tasks.size(); i++) {
-            System.out.println(String.valueOf(i + 1) + ". " + this.tasks.get(i));
+            output += String.valueOf(i + 1) + ". " + this.tasks.get(i) + "\n";
         }
+        return output;
     }
 }
