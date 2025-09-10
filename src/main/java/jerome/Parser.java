@@ -25,6 +25,7 @@ public class Parser {
      */
     public static Command parse(String input) throws JeromeException {
         String[] separated = input.split(" ", 2);
+        assert input != null : "Input should not be null";
         String command = separated[0];
         String args = separated.length > 1  ? separated[1] : "";
 
@@ -34,6 +35,7 @@ public class Parser {
         case "list":
             return new ListCommand();
         case "find":
+            assert args != null && !args.isEmpty(): "find should not be empty";
             return new FindCommand(args);
         case "mark":
             try {
