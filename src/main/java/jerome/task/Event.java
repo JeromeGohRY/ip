@@ -38,6 +38,8 @@ public class Event extends Task {
      */
     public Event(String description, boolean isDone, String start, String end) {
         super(description, isDone);
+        assert start != null && start.split(" ").length > 1 : "start should not be null and should not have length <= 1";
+        assert end != null && end.split(" ").length > 1 : "end should not be null and should not have length <= 1";
         String[] temp;
         temp = start.split(" ");
         this.start = LocalDate.parse(String.join(" ", Arrays.copyOfRange(temp, 1, temp.length)));
