@@ -29,13 +29,4 @@ public class DeleteCommand extends Command {
         storage.save(tasks.getAll());
         return ui.showDeleted(t, tasks);
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }

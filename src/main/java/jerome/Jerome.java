@@ -13,25 +13,6 @@ public class Jerome {
         this.tasks = new TaskList(this.storage.load());
     }
 
-    public static void main(String[] args) {
-        new Jerome("data.txt").run();
-    }
-
-    public void run() {
-        this.ui.hello();
-        boolean isExit = false;
-        while (!isExit) {
-            try {
-                String fullCommand = this.ui.readCommand();
-                Command c = Parser.parse(fullCommand);
-                c.execute(this.tasks, this.ui, this.storage);
-                isExit = c.isExit();
-            } catch (JeromeException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
-
     public String getResponse(String input) {
         try {
             Command c = Parser.parse(input);

@@ -31,13 +31,4 @@ public class TodoCommand extends Command {
         storage.save(tasks.getAll());
         return ui.showAddition(task,tasks);
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }

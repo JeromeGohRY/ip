@@ -29,13 +29,4 @@ public class UnmarkCommand extends Command {
         storage.save(tasks.getAll());
         return ui.showUnmark(tasks.get(index));
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }

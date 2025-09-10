@@ -18,9 +18,4 @@ public class FindCommand extends Command{
         storage.save(tasks.getAll());
         return tasks.filter(this.keyword);
     }
-
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }

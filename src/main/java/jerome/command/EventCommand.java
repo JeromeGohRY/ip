@@ -43,13 +43,4 @@ public class EventCommand extends Command {
             throw new JeromeException("Please provide a valid date in this format yyyy-mm-dd");
         }
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }
