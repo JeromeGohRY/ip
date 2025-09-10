@@ -30,13 +30,4 @@ public class MarkCommand extends Command {
         storage.save(tasks.getAll());
         return ui.showMark(tasks.get(index));
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return false;
-    }
 }

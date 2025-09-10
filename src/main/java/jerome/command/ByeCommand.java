@@ -20,13 +20,4 @@ public class ByeCommand extends Command {
     public String execute(TaskList tasks, Ui ui, Storage storage) {
         return ui.goodbye();
     }
-
-    /**
-     *
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean isExit() {
-        return true;
-    }
 }

@@ -10,10 +10,6 @@ import jerome.Ui;
  */
 public abstract class Command {
     /**
-     * Returns whether the program should exit.
-     */
-    public abstract boolean isExit();
-    /**
      * Executes the command with access to the task list, UI, and storage.
      *
      * @param tasks   The task list the command operates on.

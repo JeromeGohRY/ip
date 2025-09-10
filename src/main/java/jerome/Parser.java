@@ -23,6 +23,10 @@ public class Parser {
      * @return A Command object representing the user's instruction.
      * @throws JeromeException If the input is invalid.
      */
+    private static final String DEADLINE_SEPARATOR = " /by ";
+    private static final String EVENT_SEPARATOR = " /";
+    private static final int INDEX_OFFSET = 1;
+
     public static Command parse(String input) throws JeromeException {
         String[] separated = input.split(" ", 2);
         assert input != null : "Input should not be null";
@@ -39,7 +43,7 @@ public class Parser {
             return new FindCommand(args);
         case "mark":
             try {
-                return new MarkCommand(Integer.parseInt(args) - 1);
+                return new MarkCommand(Integer.parseInt(args) - INDEX_OFFSET);
             } catch (IndexOutOfBoundsException e) {
                 throw new JeromeException("Input error: The input is missing the index of the task you wish to mark as done.");
             } catch (NumberFormatException e) {
@@ -47,7 +51,7 @@ public class Parser {
             }
         case "unmark":
             try {
-                return new UnmarkCommand(Integer.parseInt(args) - 1);
+                return new UnmarkCommand(Integer.parseInt(args) - INDEX_OFFSET);
             } catch (IndexOutOfBoundsException e) {
                 throw new JeromeException("Input error: The input is missing the index of the task you wish to mark as not done.");
             } catch (NumberFormatException e) {
@@ -55,7 +59,7 @@ public class Parser {
             }
         case "delete":
             try {
-                return new DeleteCommand(Integer.parseInt(args) - 1);
+                return new DeleteCommand(Integer.parseInt(args) - INDEX_OFFSET);
             } catch (IndexOutOfBoundsException e) {
                 throw new JeromeException("Input error: The input is missing the index of the task you wish to delete.");
             } catch (NumberFormatException e) {
@@ -67,13 +71,13 @@ public class Parser {
             }
             return new TodoCommand(args);
         case "deadline":
-            String[] formatted = args.split(" /by ");
+            String[] formatted = args.split(DEADLINE_SEPARATOR);
             if (formatted.length != 2) {
                 throw new JeromeException("Input error: Invalid deadline format.");
             }
             return new DeadlineCommand(formatted[0], formatted[1]);
         case "event":
-            String[] deadline = args.split(" /");
+            String[] deadline = args.split(EVENT_SEPARATOR);
             if (deadline.length != 3) {
                 throw new JeromeException("Input error: Invalid event format.");
             }
