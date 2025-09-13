@@ -1,5 +1,7 @@
 package jerome.task;
 
+import jerome.JeromeException;
+
 /**
  * Represents a task in the system.
  * A <code>Task</code>  object holds details like description and whether it is done.
@@ -43,6 +45,9 @@ public class Task {
      */
     public void markAsNotDone() {
         this.isDone = false;
+    }
+
+    public void adjustDate(String dates) throws JeromeException {
     }
 
     public boolean getStatus() {

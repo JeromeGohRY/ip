@@ -63,4 +63,14 @@ public class Event extends Task {
         return "E | " + (this.isDone ? "1" : "0") + " | " + this.description + " | "
                 + "from " +  this.start + " | " + "to " + this.end;
     }
+
+    @Override
+    public void adjustDate(String dates) {
+        String[] temp;
+        temp = dates.split(" ");
+        String temp1 = temp[0];
+        String temp2 = temp[1];
+        this.start = LocalDate.parse(temp1);
+        this.end = LocalDate.parse(temp2);
+    }
 }

@@ -46,4 +46,9 @@ public class Deadline extends Task {
     public String toSaveFormat() {
         return "D | " + (this.isDone ? "1" : "0") + " | " + this.description + " | " + this.deadline;
     }
+
+    @Override
+    public void adjustDate(String by) {
+        this.deadline = LocalDate.parse(by);
+    }
 }
