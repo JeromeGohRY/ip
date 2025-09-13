@@ -1,5 +1,7 @@
 package jerome.task;
 
+import jerome.JeromeException;
+
 /**
  * Represents a Todo task in the system.
  * A <code>Todo</code>  object holds details like description and whether it is completed.
@@ -36,5 +38,10 @@ public class Todo extends Task {
     @Override
     public String toSaveFormat() {
         return "T | " + (this.isDone ? "1" : "0") + " | " + this.description;
+    }
+
+    @Override
+    public void adjustDate(String dates) throws JeromeException {
+        throw new JeromeException("Input error: Todo task does not have a date");
     }
 }

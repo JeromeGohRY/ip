@@ -8,6 +8,7 @@ import jerome.command.EventCommand;
 import jerome.command.FindCommand;
 import jerome.command.ListCommand;
 import jerome.command.MarkCommand;
+import jerome.command.RescheduleCommand;
 import jerome.command.TodoCommand;
 import jerome.command.UnmarkCommand;
 
@@ -82,6 +83,16 @@ public class Parser {
                 throw new JeromeException("Input error: Invalid event format.");
             }
             return new EventCommand(deadline[0], deadline[1], deadline[2]);
+        case "reschedule":
+            String[] newDate= args.split(" ", 2);
+            int index = Integer.valueOf(newDate[0]) - INDEX_OFFSET;
+            if (newDate.length < 2) {
+                throw new JeromeException("Input error: Invalid reschedule format.");
+            }
+            return new RescheduleCommand(index, newDate[1]);
+
+
+
         default:
             throw new JeromeException("Unknown command: " + input + " Please use todo, deadline, event, list, delete, mark, unmark and bye.");
 
