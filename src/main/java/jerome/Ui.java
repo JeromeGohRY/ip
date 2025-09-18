@@ -15,10 +15,6 @@ public class Ui {
         return "Bye. Hope to see you again soon!";
     }
 
-    public String readCommand() {
-        return scanner.nextLine();
-    }
-
     public String showLength(TaskList t) {
         return String.format("Now you have %d tasks in the list.", t.size());
 

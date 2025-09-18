@@ -87,8 +87,7 @@ public class TaskList {
                 matches.add(this.tasks.get(i));
             }
         }
-        String output = "Here are the matching tasks in your list:\n";
-        return output + matches.listTasks();
+        return matches.listMatchedTasks();
 
     }
     /**
@@ -99,6 +98,14 @@ public class TaskList {
      */
     public String listTasks() {
         String output = "Here are the tasks in your list:\n";
+        for (int i = 0; i < this.tasks.size(); i++) {
+            output += String.valueOf(i + 1) + ". " + this.tasks.get(i) + "\n";
+        }
+        return output;
+    }
+
+    public String listMatchedTasks() {
+        String output = "Here are the matching tasks in your list:\n";
         for (int i = 0; i < this.tasks.size(); i++) {
             output += String.valueOf(i + 1) + ". " + this.tasks.get(i) + "\n";
         }
