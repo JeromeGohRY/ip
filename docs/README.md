@@ -41,7 +41,7 @@ Format: find keyword
 Example: `find book`
 
 ## Reschedule task
-Reschedules the dates(s) or event task
+Reschedules a deadline or event task
 
 - Deadline task
   - Format for deadline: reschedule taskIndex(of deadline task) yyyy-mm-dd
