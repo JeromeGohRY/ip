@@ -22,7 +22,7 @@ public class RescheduleCommand extends Command {
         try {
             tasks.get(index).adjustDate(dates);
             storage.save(tasks.getAll());
-            return ui.showMark(tasks.get(index));
+            return ui.showUpdated(tasks.get(index));
         }
         catch (DateTimeParseException e){
             throw new JeromeException("Please provide valid dates in this format yyyy-mm-dd");

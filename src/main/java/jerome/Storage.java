@@ -44,7 +44,7 @@ public class Storage {
         } catch (FileNotFoundException e) {
             System.out.println("Unable to read file");
         } catch (IOException e) {
-            System.out.println("Something went wrong with file creatio");
+            System.out.println("Something went wrong with file creation");
         }
         return tasks;
     }

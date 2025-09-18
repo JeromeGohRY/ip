@@ -40,6 +40,10 @@ public class Ui {
         return output;
     }
 
+    public String showUpdated(Task t) {
+        return "Okay, I have updated the date for this task:\n" + showTask(t);
+    }
+
     public String showDeleted(Task task, TaskList tasks) {
         String output ="Noted. I've removed this task:";
         output += showTask(task);
