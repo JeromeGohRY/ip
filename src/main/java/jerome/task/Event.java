@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
+import jerome.JeromeException;
+
 /**
  * Represents a Event task in the system.
  * A <code>Event</code>  object holds details like description, start date, end date and whether it is completed.
@@ -65,12 +67,16 @@ public class Event extends Task {
     }
 
     @Override
-    public void adjustDate(String dates) {
-        String[] temp;
-        temp = dates.split(" ");
-        String temp1 = temp[0];
-        String temp2 = temp[1];
-        this.start = LocalDate.parse(temp1);
-        this.end = LocalDate.parse(temp2);
+    public void adjustDate(String dates) throws JeromeException {
+        try {
+            String[] temp;
+            temp = dates.split(" ");
+            String temp1 = temp[0];
+            String temp2 = temp[1];
+            this.start = LocalDate.parse(temp1);
+            this.end = LocalDate.parse(temp2);
+        } catch (IndexOutOfBoundsException e) {
+            throw new JeromeException("Please provide two dates for the event task");
+        }
     }
 }
